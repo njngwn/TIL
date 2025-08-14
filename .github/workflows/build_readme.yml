@@ -1,7 +1,7 @@
 # Name of the workflow
 name: Build TIL README
 
-# Define when the workflow will run (on push to the main branch)
+# Define when the workflow will run
 on:
   push:
     branches:
@@ -10,12 +10,12 @@ on:
 # Define the job(s) to be run
 jobs:
   build:
-    # Define the virtual environment for the job (latest ubuntu)
+    # Define the virtual environment for the job
     runs-on: ubuntu-latest
 
     # Define the steps of the job
     steps:
-      # 1. Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      # 1. Checks-out your repository
       - name: Checkout
         uses: actions/checkout@v4
 
@@ -23,15 +23,14 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.x' # Use Python 3.x
+          python-version: '3.x'
 
-      # 3. Run the Python script to generate the table of contents
-      - name: Run script to build README
+      # 3. Run the Python script to rename file and build README
+      - name: Run script
         run: python build_readme.py
 
-      # 4. Automatically commit and push the changed README.md file
+      # 4. Commit all changes (file rename + README update)
       - name: Commit and push if changed
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "Docs: Auto-update README.md"
-          file_pattern: README.md
+          commit_message: "Docs: Auto-rename file and update README"
