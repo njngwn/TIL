@@ -1,4 +1,6 @@
+# My Awesome TIL
 
-* [./leetcode-study/# Using a Dummy Node to Simplify Linked .md](./leetcode-study/# Using a Dummy Node to Simplify Linked .md) - 2025-08-14
+Here I record what I learn every day.
 
-* [./leetcode-study/# Using a Dummy Node to Simplify Linked .md](./leetcode-study/# Using a Dummy Node to Simplify Linked .md) - 2025-08-14
+## Table of Contents
+
