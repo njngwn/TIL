@@ -63,7 +63,8 @@ try:
     with open(ROOT_README_FILE, "r", encoding="utf-8") as f:
         readme_content = f.read()
 
-    # Use regex to find and replace the content between the markers
+    # This regex finds the content ONLY between the start and end markers
+    # It will not touch anything outside of them (like your header)
     new_readme = re.sub(
         f"{START_MARKER}(.|\n)*{END_MARKER}",
         f"{START_MARKER}\n{tils_markdown.strip()}\n{END_MARKER}",
